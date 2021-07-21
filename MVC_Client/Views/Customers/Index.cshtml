@@ -1,0 +1,155 @@
+﻿@model MVC_Client.Models.Customer
+
+@{
+    ViewBag.Title = "Welcome To Capgemini Bank";
+}
+<link href="~/Content/CustomStyleSheet.css" rel="stylesheet" />
+@{
+
+    string filename;
+    try
+    {
+        filename = Model.CUSTOMER_ID + ".jpg";
+    }
+    catch (Exception)
+    {
+        filename = "null.jpg";
+    }
+}
+<link href="~/stylediv.css" rel="stylesheet" />
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+
+            <div class="panel panel-primary">
+                <div class="UserDiv">
+                    <div class="panel-heading">
+                        <img src="~/Images/@filename" height="138" width="138" />
+                    </div>
+                </div>
+
+                <div class="panel-body" style="min-height:500px">
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <h4>Current Account Summary</h4>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td>Customer Id</td>
+                                <td>@Model.CUSTOMER_ID</td>
+
+                            </tr>
+                            <tr>
+
+                                <td>Mobile</td>
+                                <td>@Model.CONTACT_NUMBER</td>
+
+                            </tr>
+                            <tr>
+
+                                <td>Account Type</td>
+                                <td>Loan Account</td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-8">
+
+            <div class="customDiv">
+                <h2>Welcome @Model.FIRST_NAME</h2>
+                <table class="table table-borderless">
+                    <thead>
+                        <tr></tr>
+
+                    </thead>
+                    <tbody>
+                        <tr></tr>
+                        <tr>
+
+                            <td>
+                                <a href="@Url.Action("EditCustomer","Customers", new { id = Model.CUSTOMER_ID })" class="btn btn-default">
+                                    <figure>
+                                        <img src="~/Images/updatelogo.png" , height="120" width="130" />
+                                        <figcaption>Update My Details</figcaption>
+                                    </figure>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Details","Customers", new { id = Model.CUSTOMER_ID })" class="btn btn-default">
+                                    <figure>
+                                        <img src="~/Images/info_Logo.png" alt="My Information" ,height="120" width="130" />
+                                        <figcaption>My Information</figcaption>
+                                    </figure>
+                                </a>
+                            </td>
+
+                        </tr>
+                        <tr>
+
+                            <td>
+                                <a href="@Url.Action("Details","Apply_Loan", new { id = Model.CUSTOMER_ID })" class="btn btn-default">
+                                    <figure>
+                                        <img src="~/Images/details-logo.png" ,height="120" width="130" />
+                                        <figcaption>Loan Details</figcaption>
+                                    </figure>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Create","Apply_Loan", new { id = Model.CUSTOMER_ID })" class="btn btn-default">
+                                    <figure>
+                                        <img src="~/Images/x.png" ,height="120" width="130" />
+                                        <figcaption>Loan Application</figcaption>
+                                    </figure>
+                                </a>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+
+        <div class="col-lg-1">
+
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script>
+        $(function ()
+        {
+            var msg = '@TempData["status"]'
+            if (msg != '') {
+                alertify.success(msg);
+
+
+            }
+            var msg2 = '@TempData["failed"]'
+            if (msg2 != '') {
+                alertify.error(msg2);
+
+
+            }
+
+
+
+        }
+        );
+    </script>
+
+}

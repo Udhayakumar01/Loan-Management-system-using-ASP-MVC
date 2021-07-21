@@ -1,0 +1,1350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LMS_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Apply_Loan">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ID" />
+          </Key>
+          <Property Name="CUSTOMER_ID" Type="int" Nullable="false" />
+          <Property Name="LoanAmount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="LoanType" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Tenure" Type="int" Nullable="false" />
+          <Property Name="StatusType" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BANK_EMPLOYEE">
+          <Key>
+            <PropertyRef Name="EmpId" />
+          </Key>
+          <Property Name="EmpId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmpName" Type="nvarchar" MaxLength="20" />
+          <Property Name="Contact_Number" Type="numeric" Precision="20" Scale="0" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Employee_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ID" />
+          </Key>
+          <Property Name="CUSTOMER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIRST_NAME" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="LAST_NAME" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ADDRESS" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PAN_NUMBER" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="AADHAR_NUMBER" Type="bigint" Nullable="false" />
+          <Property Name="CONTACT_NUMBER" Type="bigint" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DOB" Type="date" Nullable="false" />
+          <Property Name="CREDIT_LIMIT" Type="numeric" Precision="15" Scale="0" />
+          <Property Name="LAST_UPDATED_CREDIT_DATE" Type="date" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Customer_Details">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ID" />
+          </Key>
+          <Property Name="CUSTOMER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIRST_NAME" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="LAST_NAME" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ADDRESS" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PAN_NUMBER" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="AADHAR_NUMBER" Type="bigint" Nullable="false" />
+          <Property Name="CONTACT_NUMBER" Type="bigint" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DOB" Type="date" Nullable="false" />
+          <Property Name="CREDIT_LIMIT" Type="numeric" Precision="15" Scale="0" />
+          <Property Name="LAST_UPDATED_CREDIT_LIMIT" Type="date" />
+        </EntityType>
+        <EntityType Name="Interest_Rate_Details">
+          <Key>
+            <PropertyRef Name="IntrestID" />
+          </Key>
+          <Property Name="IntrestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Loan_ID" Type="int" />
+          <Property Name="Interest_Rate" Type="decimal" Precision="4" Scale="2" />
+        </EntityType>
+        <EntityType Name="LOAN_DETAILS">
+          <Key>
+            <PropertyRef Name="LOAN_ACC_NUMBER" />
+          </Key>
+          <Property Name="LOAN_ACC_NUMBER" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LOAN_AMOUNT" Type="int" />
+          <Property Name="CUSTOMER_ID" Type="int" Nullable="false" />
+          <Property Name="LOAN_TYPE" Type="nvarchar" MaxLength="20" />
+          <Property Name="LOAN_APPROVED_DATE" Type="date" />
+          <Property Name="DISPERSAL_DATE" Type="date" />
+          <Property Name="INTEREST_RATE" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="TENURE" Type="int" />
+          <Property Name="EMI_START_DATE" Type="date" />
+          <Property Name="EMI_END_DATE" Type="date" />
+          <Property Name="EMI_AMOUNT" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CREDIT_LIMIT" Type="int" />
+          <Property Name="LAST_UPDATED_CREDIT_DATE" Type="date" />
+        </EntityType>
+        <EntityType Name="Loan_Status">
+          <Key>
+            <PropertyRef Name="Status_Id" />
+          </Key>
+          <Property Name="Status_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatusType" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="LOAN_TYPE">
+          <Key>
+            <PropertyRef Name="LoanID" />
+          </Key>
+          <Property Name="LoanID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoanType" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LMS_DB.dbo.Manage_Loan' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Manage_Loan">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ID" />
+            <PropertyRef Name="LoanAmount" />
+            <PropertyRef Name="LoanType" />
+            <PropertyRef Name="Tenure" />
+          </Key>
+          <Property Name="CUSTOMER_ID" Type="int" Nullable="false" />
+          <Property Name="LoanAmount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="LoanType" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Tenure" Type="int" Nullable="false" />
+          <Property Name="StatusType" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK__LOAN_DETA__CUSTO__0880433F">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="LOAN_DETAILS" Type="Self.LOAN_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="LOAN_DETAILS">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="spInsertBankEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EmpName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Contact_Number" Type="numeric" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email_Type" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_CheckLoan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cust_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_DeleteCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cust_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_DeleteFromApplyLoan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cust_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_GetCreditLimit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cust_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_GetCustomerFirstName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cust_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_GetCustomerId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cust_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_GetCustomerIdAfterRegistration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_GetCustomerLastName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cust_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_GetEmployeeIdAfterRegistration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_GetFirstName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cust_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_GetInterestRate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cust_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_GetLastName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cust_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_GetLoanAmount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cust_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_GetLoanType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cust_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_GetTenure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cust_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_InsertApplyLoan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CUSTOMER_ID" Type="int" Mode="In" />
+          <Parameter Name="LoanAmount" Type="decimal" Mode="In" />
+          <Parameter Name="LoanType" Type="varchar" Mode="In" />
+          <Parameter Name="Tenure" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_InsertBankEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EmpName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Contact_Number" Type="numeric" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="Employee_Type" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_InsertCustomers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="first_name" Type="varchar" Mode="In" />
+          <Parameter Name="last_name" Type="varchar" Mode="In" />
+          <Parameter Name="address" Type="varchar" Mode="In" />
+          <Parameter Name="pan_num" Type="varchar" Mode="In" />
+          <Parameter Name="aadhar_num" Type="bigint" Mode="In" />
+          <Parameter Name="con_num" Type="bigint" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="dob" Type="date" Mode="In" />
+          <Parameter Name="credit_lim" Type="numeric" Mode="In" />
+          <Parameter Name="last_updated_credit_date" Type="date" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_InsertLoan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LOAN_AMOUNT" Type="int" Mode="In" />
+          <Parameter Name="CUSTOMER_ID" Type="int" Mode="In" />
+          <Parameter Name="LOAN_TYPE" Type="nvarchar" Mode="In" />
+          <Parameter Name="LOAN_APPROVED_DATE" Type="date" Mode="In" />
+          <Parameter Name="DISPERSAL_DATE" Type="date" Mode="In" />
+          <Parameter Name="INTEREST_RATE" Type="decimal" Mode="In" />
+          <Parameter Name="TENURE" Type="int" Mode="In" />
+          <Parameter Name="EMI_START_DATE" Type="date" Mode="In" />
+          <Parameter Name="EMI_END_DATE" Type="date" Mode="In" />
+          <Parameter Name="EMI_AMOUNT" Type="decimal" Mode="In" />
+          <Parameter Name="CREDIT_LIMIT" Type="int" Mode="In" />
+          <Parameter Name="LAST_UPDATED_CREDIT_DATE" Type="date" Mode="In" />
+        </Function>
+        <Function Name="usp_InsertManageLoan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cust_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_SearchCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cust_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_ShowAllLoanApplications" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ShowEligibleCustomers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cust_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_ShowManageLoan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_UpdateApplyLoanAccept" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cust_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_UpdateApplyLoanReject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cust_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_UpdateApproved" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cust_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_UpdateCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cust_id" Type="int" Mode="In" />
+          <Parameter Name="FIRST_NAME" Type="varchar" Mode="In" />
+          <Parameter Name="LAST_NAME" Type="varchar" Mode="In" />
+          <Parameter Name="ADDRESS" Type="varchar" Mode="In" />
+          <Parameter Name="PAN_NUMBER" Type="varchar" Mode="In" />
+          <Parameter Name="AADHAR_NUMBER" Type="numeric" Mode="In" />
+          <Parameter Name="CONTACT_NUMBER" Type="numeric" Mode="In" />
+          <Parameter Name="EMAIL" Type="varchar" Mode="In" />
+          <Parameter Name="DOB" Type="date" Mode="In" />
+          <Parameter Name="CREDIT_LIMIT" Type="numeric" Mode="In" />
+          <Parameter Name="LAST_UPDATED_CREDIT_DATE" Type="date" Mode="In" />
+        </Function>
+        <Function Name="usp_UpdateCustomerDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cust_id" Type="int" Mode="In" />
+          <Parameter Name="FIRST_NAME" Type="varchar" Mode="In" />
+          <Parameter Name="LAST_NAME" Type="varchar" Mode="In" />
+          <Parameter Name="ADDRESS" Type="varchar" Mode="In" />
+          <Parameter Name="PAN_NUMBER" Type="varchar" Mode="In" />
+          <Parameter Name="AADHAR_NUMBER" Type="numeric" Mode="In" />
+          <Parameter Name="CONTACT_NUMBER" Type="numeric" Mode="In" />
+          <Parameter Name="DOB" Type="date" Mode="In" />
+          <Parameter Name="CREDIT_LIMIT" Type="numeric" Mode="In" />
+          <Parameter Name="LAST_UPDATED_CREDIT_DATE" Type="date" Mode="In" />
+        </Function>
+        <Function Name="usp_UpdateLoan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LOAN_AMOUNT" Type="int" Mode="In" />
+          <Parameter Name="CUSTOMER_ID" Type="int" Mode="In" />
+          <Parameter Name="LOAN_TYPE" Type="nvarchar" Mode="In" />
+          <Parameter Name="LOAN_APPROVED_DATE" Type="date" Mode="In" />
+          <Parameter Name="DISPERSAL_DATE" Type="date" Mode="In" />
+          <Parameter Name="INTEREST_RATE" Type="numeric" Mode="In" />
+          <Parameter Name="TENURE" Type="numeric" Mode="In" />
+          <Parameter Name="EMI_START_DATE" Type="date" Mode="In" />
+          <Parameter Name="EMI_END_DATE" Type="date" Mode="In" />
+          <Parameter Name="EMI_AMOUNT" Type="decimal" Mode="In" />
+          <Parameter Name="CREDIT_LIMIT" Type="int" Mode="In" />
+          <Parameter Name="LAST_UPDATED_CREDIT_DATE" Type="date" Mode="In" />
+          <Parameter Name="CUSTOMER_ASSET_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_UpdateRejected" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cust_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_ViewCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ViewCustomerDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cust_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_ViewLoanStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cust_id" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="LMS_DBModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Apply_Loan" EntityType="Self.Apply_Loan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BANK_EMPLOYEE" EntityType="Self.BANK_EMPLOYEE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer_Details" EntityType="Self.Customer_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Interest_Rate_Details" EntityType="Self.Interest_Rate_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOAN_DETAILS" EntityType="Self.LOAN_DETAILS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Loan_Status" EntityType="Self.Loan_Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOAN_TYPE" EntityType="Self.LOAN_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manage_Loan" EntityType="Self.Manage_Loan" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Manage_Loan].[CUSTOMER_ID] AS [CUSTOMER_ID], 
+    [Manage_Loan].[LoanAmount] AS [LoanAmount], 
+    [Manage_Loan].[LoanType] AS [LoanType], 
+    [Manage_Loan].[Tenure] AS [Tenure], 
+    [Manage_Loan].[StatusType] AS [StatusType]
+    FROM [dbo].[Manage_Loan] AS [Manage_Loan]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__LOAN_DETA__CUSTO__0880433F" Association="Self.FK__LOAN_DETA__CUSTO__0880433F">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="LOAN_DETAILS" EntitySet="LOAN_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LMS_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Apply_Loan">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ID" />
+          </Key>
+          <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" />
+          <Property Name="LoanAmount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="LoanType" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tenure" Type="Int32" Nullable="false" />
+          <Property Name="StatusType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="BANK_EMPLOYEE">
+          <Key>
+            <PropertyRef Name="EmpId" />
+          </Key>
+          <Property Name="EmpId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Contact_Number" Type="Decimal" Precision="20" Scale="0" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Employee_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ID" />
+          </Key>
+          <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIRST_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PAN_NUMBER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AADHAR_NUMBER" Type="Int64" Nullable="false" />
+          <Property Name="CONTACT_NUMBER" Type="Int64" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CREDIT_LIMIT" Type="Decimal" Precision="15" Scale="0" />
+          <Property Name="LAST_UPDATED_CREDIT_DATE" Type="DateTime" Precision="0" />
+          <Property Name="PASSWORD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="LOAN_DETAILS" Relationship="Self.FK__LOAN_DETA__CUSTO__0880433F" FromRole="Customer" ToRole="LOAN_DETAILS" />
+        </EntityType>
+        <EntityType Name="Customer_Details">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ID" />
+          </Key>
+          <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIRST_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PAN_NUMBER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AADHAR_NUMBER" Type="Int64" Nullable="false" />
+          <Property Name="CONTACT_NUMBER" Type="Int64" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CREDIT_LIMIT" Type="Decimal" Precision="15" Scale="0" />
+          <Property Name="LAST_UPDATED_CREDIT_LIMIT" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Interest_Rate_Details">
+          <Key>
+            <PropertyRef Name="IntrestID" />
+          </Key>
+          <Property Name="IntrestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Loan_ID" Type="Int32" />
+          <Property Name="Interest_Rate" Type="Decimal" Precision="4" Scale="2" />
+        </EntityType>
+        <EntityType Name="LOAN_DETAILS">
+          <Key>
+            <PropertyRef Name="LOAN_ACC_NUMBER" />
+          </Key>
+          <Property Name="LOAN_ACC_NUMBER" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LOAN_AMOUNT" Type="Int32" />
+          <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" />
+          <Property Name="LOAN_TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LOAN_APPROVED_DATE" Type="DateTime" Precision="0" />
+          <Property Name="DISPERSAL_DATE" Type="DateTime" Precision="0" />
+          <Property Name="INTEREST_RATE" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="TENURE" Type="Int32" />
+          <Property Name="EMI_START_DATE" Type="DateTime" Precision="0" />
+          <Property Name="EMI_END_DATE" Type="DateTime" Precision="0" />
+          <Property Name="EMI_AMOUNT" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CREDIT_LIMIT" Type="Int32" />
+          <Property Name="LAST_UPDATED_CREDIT_DATE" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__LOAN_DETA__CUSTO__0880433F" FromRole="LOAN_DETAILS" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Loan_Status">
+          <Key>
+            <PropertyRef Name="Status_Id" />
+          </Key>
+          <Property Name="Status_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StatusType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="LOAN_TYPE">
+          <Key>
+            <PropertyRef Name="LoanID" />
+          </Key>
+          <Property Name="LoanID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoanType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Manage_Loan">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ID" />
+            <PropertyRef Name="LoanAmount" />
+            <PropertyRef Name="LoanType" />
+            <PropertyRef Name="Tenure" />
+          </Key>
+          <Property Name="CUSTOMER_ID" Type="Int32" Nullable="false" />
+          <Property Name="LoanAmount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="LoanType" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tenure" Type="Int32" Nullable="false" />
+          <Property Name="StatusType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LOAN_DETA__CUSTO__0880433F">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="LOAN_DETAILS" Type="Self.LOAN_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="LOAN_DETAILS">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="LMS_DBEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="Apply_Loan" EntityType="Self.Apply_Loan" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="BANK_EMPLOYEE" EntityType="Self.BANK_EMPLOYEE" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Customer_Details" EntityType="Self.Customer_Details" />
+          <EntitySet Name="Interest_Rate_Details" EntityType="Self.Interest_Rate_Details" />
+          <EntitySet Name="LOAN_DETAILS" EntityType="Self.LOAN_DETAILS" />
+          <EntitySet Name="Loan_Status" EntityType="Self.Loan_Status" />
+          <EntitySet Name="LOAN_TYPE" EntityType="Self.LOAN_TYPE" />
+          <EntitySet Name="Manage_Loan" EntityType="Self.Manage_Loan" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LOAN_DETA__CUSTO__0880433F" Association="Self.FK__LOAN_DETA__CUSTO__0880433F">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="LOAN_DETAILS" EntitySet="LOAN_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <FunctionImport Name="spInsertBankEmployee">
+            <Parameter Name="EmpName" Mode="In" Type="String" />
+            <Parameter Name="Contact_Number" Mode="In" Type="Decimal" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Email_Type" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CheckLoan" ReturnType="Collection(LMS_DBModel.usp_CheckLoan_Result)">
+          <Parameter Name="cust_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_DeleteCustomer">
+          <Parameter Name="cust_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_DeleteFromApplyLoan">
+          <Parameter Name="cust_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetCreditLimit" ReturnType="Collection(Decimal)">
+          <Parameter Name="cust_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetCustomerFirstName" ReturnType="Collection(String)">
+          <Parameter Name="cust_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetCustomerId" ReturnType="Collection(Int32)">
+          <Parameter Name="cust_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetCustomerIdAfterRegistration" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="usp_GetCustomerLastName" ReturnType="Collection(String)">
+          <Parameter Name="cust_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetEmployeeIdAfterRegistration" ReturnType="Collection(Int32)" />
+          <FunctionImport Name="usp_GetFirstName" ReturnType="Collection(String)">
+          <Parameter Name="cust_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetInterestRate" ReturnType="Collection(Decimal)">
+          <Parameter Name="cust_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetLastName" ReturnType="Collection(String)">
+          <Parameter Name="cust_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetLoanAmount" ReturnType="Collection(Decimal)">
+          <Parameter Name="cust_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetLoanType" ReturnType="Collection(String)">
+          <Parameter Name="cust_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetTenure" ReturnType="Collection(Int32)">
+          <Parameter Name="cust_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_InsertApplyLoan">
+            <Parameter Name="CUSTOMER_ID" Mode="In" Type="Int32" />
+            <Parameter Name="LoanAmount" Mode="In" Type="Decimal" />
+            <Parameter Name="LoanType" Mode="In" Type="String" />
+            <Parameter Name="Tenure" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_InsertBankEmployee">
+            <Parameter Name="EmpName" Mode="In" Type="String" />
+            <Parameter Name="Contact_Number" Mode="In" Type="Decimal" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Employee_Type" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_InsertCustomers" ReturnType="Collection(LMS_DBModel.usp_InsertCustomers_Result)">
+            <Parameter Name="first_name" Mode="In" Type="String" />
+            <Parameter Name="last_name" Mode="In" Type="String" />
+            <Parameter Name="address" Mode="In" Type="String" />
+            <Parameter Name="pan_num" Mode="In" Type="String" />
+            <Parameter Name="aadhar_num" Mode="In" Type="Int64" />
+            <Parameter Name="con_num" Mode="In" Type="Int64" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="dob" Mode="In" Type="DateTime" />
+            <Parameter Name="credit_lim" Mode="In" Type="Decimal" />
+            <Parameter Name="last_updated_credit_date" Mode="In" Type="DateTime" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_InsertLoan">
+            <Parameter Name="LOAN_AMOUNT" Mode="In" Type="Int32" />
+            <Parameter Name="CUSTOMER_ID" Mode="In" Type="Int32" />
+            <Parameter Name="LOAN_TYPE" Mode="In" Type="String" />
+            <Parameter Name="LOAN_APPROVED_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="DISPERSAL_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="INTEREST_RATE" Mode="In" Type="Decimal" />
+            <Parameter Name="TENURE" Mode="In" Type="Int32" />
+            <Parameter Name="EMI_START_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="EMI_END_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="EMI_AMOUNT" Mode="In" Type="Decimal" />
+            <Parameter Name="CREDIT_LIMIT" Mode="In" Type="Int32" />
+            <Parameter Name="LAST_UPDATED_CREDIT_DATE" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_InsertManageLoan">
+          <Parameter Name="cust_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_SearchCustomer" ReturnType="Collection(LMS_DBModel.usp_SearchCustomer_Result)">
+          <Parameter Name="cust_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ShowAllLoanApplications" ReturnType="Collection(LMS_DBModel.usp_ShowAllLoanApplications_Result)" />
+          <FunctionImport Name="usp_ShowEligibleCustomers" ReturnType="Collection(LMS_DBModel.usp_ShowEligibleCustomers_Result)">
+          <Parameter Name="cust_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ShowManageLoan" ReturnType="Collection(LMS_DBModel.usp_ShowManageLoan_Result)" />
+          <FunctionImport Name="usp_UpdateApplyLoanAccept">
+          <Parameter Name="cust_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_UpdateApplyLoanReject">
+          <Parameter Name="cust_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_UpdateApproved">
+          <Parameter Name="cust_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_UpdateCustomer">
+            <Parameter Name="cust_id" Mode="In" Type="Int32" />
+            <Parameter Name="FIRST_NAME" Mode="In" Type="String" />
+            <Parameter Name="LAST_NAME" Mode="In" Type="String" />
+            <Parameter Name="ADDRESS" Mode="In" Type="String" />
+            <Parameter Name="PAN_NUMBER" Mode="In" Type="String" />
+            <Parameter Name="AADHAR_NUMBER" Mode="In" Type="Decimal" />
+            <Parameter Name="CONTACT_NUMBER" Mode="In" Type="Decimal" />
+            <Parameter Name="EMAIL" Mode="In" Type="String" />
+            <Parameter Name="DOB" Mode="In" Type="DateTime" />
+            <Parameter Name="CREDIT_LIMIT" Mode="In" Type="Decimal" />
+            <Parameter Name="LAST_UPDATED_CREDIT_DATE" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_UpdateCustomerDetails">
+            <Parameter Name="cust_id" Mode="In" Type="Int32" />
+            <Parameter Name="FIRST_NAME" Mode="In" Type="String" />
+            <Parameter Name="LAST_NAME" Mode="In" Type="String" />
+            <Parameter Name="ADDRESS" Mode="In" Type="String" />
+            <Parameter Name="PAN_NUMBER" Mode="In" Type="String" />
+            <Parameter Name="AADHAR_NUMBER" Mode="In" Type="Decimal" />
+            <Parameter Name="CONTACT_NUMBER" Mode="In" Type="Decimal" />
+            <Parameter Name="DOB" Mode="In" Type="DateTime" />
+            <Parameter Name="CREDIT_LIMIT" Mode="In" Type="Decimal" />
+            <Parameter Name="LAST_UPDATED_CREDIT_DATE" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_UpdateLoan">
+            <Parameter Name="LOAN_AMOUNT" Mode="In" Type="Int32" />
+            <Parameter Name="CUSTOMER_ID" Mode="In" Type="Int32" />
+            <Parameter Name="LOAN_TYPE" Mode="In" Type="String" />
+            <Parameter Name="LOAN_APPROVED_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="DISPERSAL_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="INTEREST_RATE" Mode="In" Type="Decimal" />
+            <Parameter Name="TENURE" Mode="In" Type="Decimal" />
+            <Parameter Name="EMI_START_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="EMI_END_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="EMI_AMOUNT" Mode="In" Type="Decimal" />
+            <Parameter Name="CREDIT_LIMIT" Mode="In" Type="Int32" />
+            <Parameter Name="LAST_UPDATED_CREDIT_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="CUSTOMER_ASSET_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_UpdateRejected">
+          <Parameter Name="cust_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ViewCustomer" ReturnType="Collection(LMS_DBModel.usp_ViewCustomer_Result)" />
+          <FunctionImport Name="usp_ViewCustomerDetails" ReturnType="Collection(LMS_DBModel.usp_ViewCustomerDetails_Result)">
+          <Parameter Name="cust_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ViewLoanStatus" ReturnType="Collection(LMS_DBModel.usp_ViewLoanStatus_Result)">
+          <Parameter Name="cust_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="usp_CheckLoan_Result">
+          <Property Type="Decimal" Name="LOAN_ACC_NUMBER" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="LOAN_AMOUNT" Nullable="true" />
+          <Property Type="Int32" Name="CUSTOMER_ID" Nullable="false" />
+          <Property Type="String" Name="LOAN_TYPE" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="LOAN_APPROVED_DATE" Nullable="true" />
+          <Property Type="DateTime" Name="DISPERSAL_DATE" Nullable="true" />
+          <Property Type="Decimal" Name="INTEREST_RATE" Nullable="true" Precision="4" Scale="2" />
+          <Property Type="Int32" Name="TENURE" Nullable="true" />
+          <Property Type="DateTime" Name="EMI_START_DATE" Nullable="true" />
+          <Property Type="DateTime" Name="EMI_END_DATE" Nullable="true" />
+          <Property Type="Decimal" Name="EMI_AMOUNT" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="CREDIT_LIMIT" Nullable="true" />
+          <Property Type="DateTime" Name="LAST_UPDATED_CREDIT_DATE" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_InsertCustomers_Result">
+          <Property Type="Int32" Name="CUSTOMER_ID" Nullable="false" />
+          <Property Type="String" Name="FIRST_NAME" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="LAST_NAME" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ADDRESS" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="PAN_NUMBER" Nullable="false" MaxLength="20" />
+          <Property Type="Int64" Name="AADHAR_NUMBER" Nullable="false" />
+          <Property Type="Int64" Name="CONTACT_NUMBER" Nullable="false" />
+          <Property Type="String" Name="EMAIL" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="DOB" Nullable="false" />
+          <Property Type="Decimal" Name="CREDIT_LIMIT" Nullable="true" Precision="15" Scale="0" />
+          <Property Type="DateTime" Name="LAST_UPDATED_CREDIT_DATE" Nullable="true" />
+          <Property Type="String" Name="PASSWORD" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_SearchCustomer_Result">
+          <Property Type="Int32" Name="CUSTOMER_ID" Nullable="false" />
+          <Property Type="String" Name="FIRST_NAME" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="LAST_NAME" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ADDRESS" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="PAN_NUMBER" Nullable="false" MaxLength="20" />
+          <Property Type="Int64" Name="AADHAR_NUMBER" Nullable="false" />
+          <Property Type="Int64" Name="CONTACT_NUMBER" Nullable="false" />
+          <Property Type="String" Name="EMAIL" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="DOB" Nullable="false" />
+          <Property Type="Decimal" Name="CREDIT_LIMIT" Nullable="true" Precision="15" Scale="0" />
+          <Property Type="DateTime" Name="LAST_UPDATED_CREDIT_DATE" Nullable="true" />
+          <Property Type="String" Name="PASSWORD" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_ShowAllLoanApplications_Result">
+          <Property Type="Int32" Name="CUSTOMER_ID" Nullable="false" />
+          <Property Type="Decimal" Name="LoanAmount" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="LoanType" Nullable="false" MaxLength="15" />
+          <Property Type="Int32" Name="Tenure" Nullable="false" />
+          <Property Type="String" Name="StatusType" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_ShowEligibleCustomers_Result">
+          <Property Type="Int32" Name="CUSTOMER_ID" Nullable="false" />
+          <Property Type="Decimal" Name="LoanAmount" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="LoanType" Nullable="false" MaxLength="15" />
+          <Property Type="Int32" Name="Tenure" Nullable="false" />
+          <Property Type="String" Name="StatusType" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_ShowManageLoan_Result">
+          <Property Type="Int32" Name="CUSTOMER_ID" Nullable="false" />
+          <Property Type="Decimal" Name="LoanAmount" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="LoanType" Nullable="false" MaxLength="15" />
+          <Property Type="Int32" Name="Tenure" Nullable="false" />
+          <Property Type="String" Name="StatusType" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_ViewCustomer_Result">
+          <Property Type="Int32" Name="CUSTOMER_ID" Nullable="false" />
+          <Property Type="String" Name="FIRST_NAME" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="LAST_NAME" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ADDRESS" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="PAN_NUMBER" Nullable="false" MaxLength="20" />
+          <Property Type="Int64" Name="AADHAR_NUMBER" Nullable="false" />
+          <Property Type="Int64" Name="CONTACT_NUMBER" Nullable="false" />
+          <Property Type="String" Name="EMAIL" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="DOB" Nullable="false" />
+          <Property Type="Decimal" Name="CREDIT_LIMIT" Nullable="true" Precision="15" Scale="0" />
+          <Property Type="DateTime" Name="LAST_UPDATED_CREDIT_DATE" Nullable="true" />
+          <Property Type="String" Name="PASSWORD" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_ViewCustomerDetails_Result">
+          <Property Type="Int32" Name="CUSTOMER_ID" Nullable="false" />
+          <Property Type="String" Name="FIRST_NAME" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="LAST_NAME" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ADDRESS" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="PAN_NUMBER" Nullable="false" MaxLength="20" />
+          <Property Type="Int64" Name="AADHAR_NUMBER" Nullable="false" />
+          <Property Type="Int64" Name="CONTACT_NUMBER" Nullable="false" />
+          <Property Type="String" Name="EMAIL" Nullable="false" MaxLength="20" />
+          <Property Type="DateTime" Name="DOB" Nullable="false" />
+          <Property Type="Decimal" Name="CREDIT_LIMIT" Nullable="true" Precision="15" Scale="0" />
+          <Property Type="DateTime" Name="LAST_UPDATED_CREDIT_DATE" Nullable="true" />
+          <Property Type="String" Name="PASSWORD" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="usp_ViewLoanStatus_Result">
+          <Property Type="Int32" Name="CUSTOMER_ID" Nullable="false" />
+          <Property Type="Decimal" Name="LoanAmount" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="LoanType" Nullable="false" MaxLength="15" />
+          <Property Type="Int32" Name="Tenure" Nullable="false" />
+          <Property Type="String" Name="StatusType" Nullable="true" MaxLength="20" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LMS_DBModelStoreContainer" CdmEntityContainer="LMS_DBEntities1">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="LMS_DBModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="LMS_DBModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Apply_Loan">
+            <EntityTypeMapping TypeName="LMS_DBModel.Apply_Loan">
+              <MappingFragment StoreEntitySet="Apply_Loan">
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="LoanAmount" ColumnName="LoanAmount" />
+                <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+                <ScalarProperty Name="Tenure" ColumnName="Tenure" />
+                <ScalarProperty Name="StatusType" ColumnName="StatusType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="LMS_DBModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="LMS_DBModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="LMS_DBModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="LMS_DBModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BANK_EMPLOYEE">
+            <EntityTypeMapping TypeName="LMS_DBModel.BANK_EMPLOYEE">
+              <MappingFragment StoreEntitySet="BANK_EMPLOYEE">
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+                <ScalarProperty Name="Contact_Number" ColumnName="Contact_Number" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Employee_Type" ColumnName="Employee_Type" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="LMS_DBModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="PAN_NUMBER" ColumnName="PAN_NUMBER" />
+                <ScalarProperty Name="AADHAR_NUMBER" ColumnName="AADHAR_NUMBER" />
+                <ScalarProperty Name="CONTACT_NUMBER" ColumnName="CONTACT_NUMBER" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="CREDIT_LIMIT" ColumnName="CREDIT_LIMIT" />
+                <ScalarProperty Name="LAST_UPDATED_CREDIT_DATE" ColumnName="LAST_UPDATED_CREDIT_DATE" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customer_Details">
+            <EntityTypeMapping TypeName="LMS_DBModel.Customer_Details">
+              <MappingFragment StoreEntitySet="Customer_Details">
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="PAN_NUMBER" ColumnName="PAN_NUMBER" />
+                <ScalarProperty Name="AADHAR_NUMBER" ColumnName="AADHAR_NUMBER" />
+                <ScalarProperty Name="CONTACT_NUMBER" ColumnName="CONTACT_NUMBER" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="CREDIT_LIMIT" ColumnName="CREDIT_LIMIT" />
+                <ScalarProperty Name="LAST_UPDATED_CREDIT_LIMIT" ColumnName="LAST_UPDATED_CREDIT_LIMIT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Interest_Rate_Details">
+            <EntityTypeMapping TypeName="LMS_DBModel.Interest_Rate_Details">
+              <MappingFragment StoreEntitySet="Interest_Rate_Details">
+                <ScalarProperty Name="IntrestID" ColumnName="IntrestID" />
+                <ScalarProperty Name="Loan_ID" ColumnName="Loan_ID" />
+                <ScalarProperty Name="Interest_Rate" ColumnName="Interest_Rate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOAN_DETAILS">
+            <EntityTypeMapping TypeName="LMS_DBModel.LOAN_DETAILS">
+              <MappingFragment StoreEntitySet="LOAN_DETAILS">
+                <ScalarProperty Name="LOAN_ACC_NUMBER" ColumnName="LOAN_ACC_NUMBER" />
+                <ScalarProperty Name="LOAN_AMOUNT" ColumnName="LOAN_AMOUNT" />
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="LOAN_TYPE" ColumnName="LOAN_TYPE" />
+                <ScalarProperty Name="LOAN_APPROVED_DATE" ColumnName="LOAN_APPROVED_DATE" />
+                <ScalarProperty Name="DISPERSAL_DATE" ColumnName="DISPERSAL_DATE" />
+                <ScalarProperty Name="INTEREST_RATE" ColumnName="INTEREST_RATE" />
+                <ScalarProperty Name="TENURE" ColumnName="TENURE" />
+                <ScalarProperty Name="EMI_START_DATE" ColumnName="EMI_START_DATE" />
+                <ScalarProperty Name="EMI_END_DATE" ColumnName="EMI_END_DATE" />
+                <ScalarProperty Name="EMI_AMOUNT" ColumnName="EMI_AMOUNT" />
+                <ScalarProperty Name="CREDIT_LIMIT" ColumnName="CREDIT_LIMIT" />
+                <ScalarProperty Name="LAST_UPDATED_CREDIT_DATE" ColumnName="LAST_UPDATED_CREDIT_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Loan_Status">
+            <EntityTypeMapping TypeName="LMS_DBModel.Loan_Status">
+              <MappingFragment StoreEntitySet="Loan_Status">
+                <ScalarProperty Name="Status_Id" ColumnName="Status_Id" />
+                <ScalarProperty Name="StatusType" ColumnName="StatusType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOAN_TYPE">
+            <EntityTypeMapping TypeName="LMS_DBModel.LOAN_TYPE">
+              <MappingFragment StoreEntitySet="LOAN_TYPE">
+                <ScalarProperty Name="LoanID" ColumnName="LoanID" />
+                <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manage_Loan">
+            <EntityTypeMapping TypeName="LMS_DBModel.Manage_Loan">
+              <MappingFragment StoreEntitySet="Manage_Loan">
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="LoanAmount" ColumnName="LoanAmount" />
+                <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+                <ScalarProperty Name="Tenure" ColumnName="Tenure" />
+                <ScalarProperty Name="StatusType" ColumnName="StatusType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="LMS_DBModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="spInsertBankEmployee" FunctionName="LMS_DBModel.Store.spInsertBankEmployee" />
+          <FunctionImportMapping FunctionImportName="usp_CheckLoan" FunctionName="LMS_DBModel.Store.usp_CheckLoan">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LMS_DBModel.usp_CheckLoan_Result">
+                <ScalarProperty Name="LOAN_ACC_NUMBER" ColumnName="LOAN_ACC_NUMBER" />
+                <ScalarProperty Name="LOAN_AMOUNT" ColumnName="LOAN_AMOUNT" />
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="LOAN_TYPE" ColumnName="LOAN_TYPE" />
+                <ScalarProperty Name="LOAN_APPROVED_DATE" ColumnName="LOAN_APPROVED_DATE" />
+                <ScalarProperty Name="DISPERSAL_DATE" ColumnName="DISPERSAL_DATE" />
+                <ScalarProperty Name="INTEREST_RATE" ColumnName="INTEREST_RATE" />
+                <ScalarProperty Name="TENURE" ColumnName="TENURE" />
+                <ScalarProperty Name="EMI_START_DATE" ColumnName="EMI_START_DATE" />
+                <ScalarProperty Name="EMI_END_DATE" ColumnName="EMI_END_DATE" />
+                <ScalarProperty Name="EMI_AMOUNT" ColumnName="EMI_AMOUNT" />
+                <ScalarProperty Name="CREDIT_LIMIT" ColumnName="CREDIT_LIMIT" />
+                <ScalarProperty Name="LAST_UPDATED_CREDIT_DATE" ColumnName="LAST_UPDATED_CREDIT_DATE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_DeleteCustomer" FunctionName="LMS_DBModel.Store.usp_DeleteCustomer" />
+          <FunctionImportMapping FunctionImportName="usp_DeleteFromApplyLoan" FunctionName="LMS_DBModel.Store.usp_DeleteFromApplyLoan" />
+          <FunctionImportMapping FunctionImportName="usp_GetCreditLimit" FunctionName="LMS_DBModel.Store.usp_GetCreditLimit" />
+          <FunctionImportMapping FunctionImportName="usp_GetCustomerFirstName" FunctionName="LMS_DBModel.Store.usp_GetCustomerFirstName" />
+          <FunctionImportMapping FunctionImportName="usp_GetCustomerId" FunctionName="LMS_DBModel.Store.usp_GetCustomerId" />
+          <FunctionImportMapping FunctionImportName="usp_GetCustomerIdAfterRegistration" FunctionName="LMS_DBModel.Store.usp_GetCustomerIdAfterRegistration" />
+          <FunctionImportMapping FunctionImportName="usp_GetCustomerLastName" FunctionName="LMS_DBModel.Store.usp_GetCustomerLastName" />
+          <FunctionImportMapping FunctionImportName="usp_GetEmployeeIdAfterRegistration" FunctionName="LMS_DBModel.Store.usp_GetEmployeeIdAfterRegistration" />
+          <FunctionImportMapping FunctionImportName="usp_GetFirstName" FunctionName="LMS_DBModel.Store.usp_GetFirstName" />
+          <FunctionImportMapping FunctionImportName="usp_GetInterestRate" FunctionName="LMS_DBModel.Store.usp_GetInterestRate" />
+          <FunctionImportMapping FunctionImportName="usp_GetLastName" FunctionName="LMS_DBModel.Store.usp_GetLastName" />
+          <FunctionImportMapping FunctionImportName="usp_GetLoanAmount" FunctionName="LMS_DBModel.Store.usp_GetLoanAmount" />
+          <FunctionImportMapping FunctionImportName="usp_GetLoanType" FunctionName="LMS_DBModel.Store.usp_GetLoanType" />
+          <FunctionImportMapping FunctionImportName="usp_GetTenure" FunctionName="LMS_DBModel.Store.usp_GetTenure" />
+          <FunctionImportMapping FunctionImportName="usp_InsertApplyLoan" FunctionName="LMS_DBModel.Store.usp_InsertApplyLoan" />
+          <FunctionImportMapping FunctionImportName="usp_InsertBankEmployee" FunctionName="LMS_DBModel.Store.usp_InsertBankEmployee" />
+          <FunctionImportMapping FunctionImportName="usp_InsertCustomers" FunctionName="LMS_DBModel.Store.usp_InsertCustomers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LMS_DBModel.usp_InsertCustomers_Result">
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="PAN_NUMBER" ColumnName="PAN_NUMBER" />
+                <ScalarProperty Name="AADHAR_NUMBER" ColumnName="AADHAR_NUMBER" />
+                <ScalarProperty Name="CONTACT_NUMBER" ColumnName="CONTACT_NUMBER" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="CREDIT_LIMIT" ColumnName="CREDIT_LIMIT" />
+                <ScalarProperty Name="LAST_UPDATED_CREDIT_DATE" ColumnName="LAST_UPDATED_CREDIT_DATE" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_InsertLoan" FunctionName="LMS_DBModel.Store.usp_InsertLoan" />
+          <FunctionImportMapping FunctionImportName="usp_InsertManageLoan" FunctionName="LMS_DBModel.Store.usp_InsertManageLoan" />
+          <FunctionImportMapping FunctionImportName="usp_SearchCustomer" FunctionName="LMS_DBModel.Store.usp_SearchCustomer">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LMS_DBModel.usp_SearchCustomer_Result">
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="PAN_NUMBER" ColumnName="PAN_NUMBER" />
+                <ScalarProperty Name="AADHAR_NUMBER" ColumnName="AADHAR_NUMBER" />
+                <ScalarProperty Name="CONTACT_NUMBER" ColumnName="CONTACT_NUMBER" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="CREDIT_LIMIT" ColumnName="CREDIT_LIMIT" />
+                <ScalarProperty Name="LAST_UPDATED_CREDIT_DATE" ColumnName="LAST_UPDATED_CREDIT_DATE" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ShowAllLoanApplications" FunctionName="LMS_DBModel.Store.usp_ShowAllLoanApplications">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LMS_DBModel.usp_ShowAllLoanApplications_Result">
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="LoanAmount" ColumnName="LoanAmount" />
+                <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+                <ScalarProperty Name="Tenure" ColumnName="Tenure" />
+                <ScalarProperty Name="StatusType" ColumnName="StatusType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ShowEligibleCustomers" FunctionName="LMS_DBModel.Store.usp_ShowEligibleCustomers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LMS_DBModel.usp_ShowEligibleCustomers_Result">
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="LoanAmount" ColumnName="LoanAmount" />
+                <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+                <ScalarProperty Name="Tenure" ColumnName="Tenure" />
+                <ScalarProperty Name="StatusType" ColumnName="StatusType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ShowManageLoan" FunctionName="LMS_DBModel.Store.usp_ShowManageLoan">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LMS_DBModel.usp_ShowManageLoan_Result">
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="LoanAmount" ColumnName="LoanAmount" />
+                <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+                <ScalarProperty Name="Tenure" ColumnName="Tenure" />
+                <ScalarProperty Name="StatusType" ColumnName="StatusType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_UpdateApplyLoanAccept" FunctionName="LMS_DBModel.Store.usp_UpdateApplyLoanAccept" />
+          <FunctionImportMapping FunctionImportName="usp_UpdateApplyLoanReject" FunctionName="LMS_DBModel.Store.usp_UpdateApplyLoanReject" />
+          <FunctionImportMapping FunctionImportName="usp_UpdateApproved" FunctionName="LMS_DBModel.Store.usp_UpdateApproved" />
+          <FunctionImportMapping FunctionImportName="usp_UpdateCustomer" FunctionName="LMS_DBModel.Store.usp_UpdateCustomer" />
+          <FunctionImportMapping FunctionImportName="usp_UpdateCustomerDetails" FunctionName="LMS_DBModel.Store.usp_UpdateCustomerDetails" />
+          <FunctionImportMapping FunctionImportName="usp_UpdateLoan" FunctionName="LMS_DBModel.Store.usp_UpdateLoan" />
+          <FunctionImportMapping FunctionImportName="usp_UpdateRejected" FunctionName="LMS_DBModel.Store.usp_UpdateRejected" />
+          <FunctionImportMapping FunctionImportName="usp_ViewCustomer" FunctionName="LMS_DBModel.Store.usp_ViewCustomer">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LMS_DBModel.usp_ViewCustomer_Result">
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="PAN_NUMBER" ColumnName="PAN_NUMBER" />
+                <ScalarProperty Name="AADHAR_NUMBER" ColumnName="AADHAR_NUMBER" />
+                <ScalarProperty Name="CONTACT_NUMBER" ColumnName="CONTACT_NUMBER" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="CREDIT_LIMIT" ColumnName="CREDIT_LIMIT" />
+                <ScalarProperty Name="LAST_UPDATED_CREDIT_DATE" ColumnName="LAST_UPDATED_CREDIT_DATE" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ViewCustomerDetails" FunctionName="LMS_DBModel.Store.usp_ViewCustomerDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LMS_DBModel.usp_ViewCustomerDetails_Result">
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="PAN_NUMBER" ColumnName="PAN_NUMBER" />
+                <ScalarProperty Name="AADHAR_NUMBER" ColumnName="AADHAR_NUMBER" />
+                <ScalarProperty Name="CONTACT_NUMBER" ColumnName="CONTACT_NUMBER" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="CREDIT_LIMIT" ColumnName="CREDIT_LIMIT" />
+                <ScalarProperty Name="LAST_UPDATED_CREDIT_DATE" ColumnName="LAST_UPDATED_CREDIT_DATE" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ViewLoanStatus" FunctionName="LMS_DBModel.Store.usp_ViewLoanStatus">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LMS_DBModel.usp_ViewLoanStatus_Result">
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="LoanAmount" ColumnName="LoanAmount" />
+                <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+                <ScalarProperty Name="Tenure" ColumnName="Tenure" />
+                <ScalarProperty Name="StatusType" ColumnName="StatusType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

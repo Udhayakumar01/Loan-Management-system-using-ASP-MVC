@@ -1,0 +1,60 @@
+﻿@model MVC_Client.Models.Apply_Loan
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Loan Details</h2>
+
+<div>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td><b>@Html.DisplayNameFor(model => model.CUSTOMER_ID)</b></td>
+                <td>@Html.DisplayFor(model => model.CUSTOMER_ID)</td>
+
+            </tr>
+            <tr>
+
+                <td><b> @Html.DisplayNameFor(model => model.LoanAmount)</b></td>
+                <td> @Html.DisplayFor(model => model.LoanAmount)</td>
+
+            </tr>
+            <tr>
+
+                <td><b>@Html.DisplayNameFor(model => model.LoanType)</b></td>
+                <td>@Html.DisplayFor(model => model.LoanType)</td>
+            </tr>
+            <tr>
+
+                <td><b>@Html.DisplayNameFor(model => model.Tenure)</b></td>
+                <td>@Html.DisplayFor(model => model.Tenure)</td>
+
+            </tr>
+            <tr>
+
+                <td><b>@Html.DisplayNameFor(model => model.StatusType)</b></td>
+                <td>@Html.DisplayFor(model => model.StatusType)</td>
+
+            </tr>
+
+
+
+
+        </tbody>
+    </table>
+
+
+</div>
+
+
+<div>
+    <a href="@Url.Action("Index/" + Model.CUSTOMER_ID.ToString(), "Customers")" class="btn btn-primary">Back</a>
+
+</div>

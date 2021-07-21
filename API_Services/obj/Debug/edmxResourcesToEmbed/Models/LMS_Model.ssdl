@@ -1,0 +1,454 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LMS_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Apply_Loan">
+    <Key>
+      <PropertyRef Name="CUSTOMER_ID" />
+    </Key>
+    <Property Name="CUSTOMER_ID" Type="int" Nullable="false" />
+    <Property Name="LoanAmount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="LoanType" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Tenure" Type="int" Nullable="false" />
+    <Property Name="StatusType" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BANK_EMPLOYEE">
+    <Key>
+      <PropertyRef Name="EmpId" />
+    </Key>
+    <Property Name="EmpId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpName" Type="nvarchar" MaxLength="20" />
+    <Property Name="Contact_Number" Type="numeric" Precision="20" Scale="0" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Employee_Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CUSTOMER_ID" />
+    </Key>
+    <Property Name="CUSTOMER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FIRST_NAME" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="LAST_NAME" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ADDRESS" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PAN_NUMBER" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AADHAR_NUMBER" Type="bigint" Nullable="false" />
+    <Property Name="CONTACT_NUMBER" Type="bigint" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DOB" Type="date" Nullable="false" />
+    <Property Name="CREDIT_LIMIT" Type="numeric" Precision="15" Scale="0" />
+    <Property Name="LAST_UPDATED_CREDIT_DATE" Type="date" />
+    <Property Name="PASSWORD" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Customer_Details">
+    <Key>
+      <PropertyRef Name="CUSTOMER_ID" />
+    </Key>
+    <Property Name="CUSTOMER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FIRST_NAME" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="LAST_NAME" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ADDRESS" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PAN_NUMBER" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AADHAR_NUMBER" Type="bigint" Nullable="false" />
+    <Property Name="CONTACT_NUMBER" Type="bigint" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DOB" Type="date" Nullable="false" />
+    <Property Name="CREDIT_LIMIT" Type="numeric" Precision="15" Scale="0" />
+    <Property Name="LAST_UPDATED_CREDIT_LIMIT" Type="date" />
+  </EntityType>
+  <EntityType Name="Interest_Rate_Details">
+    <Key>
+      <PropertyRef Name="IntrestID" />
+    </Key>
+    <Property Name="IntrestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Loan_ID" Type="int" />
+    <Property Name="Interest_Rate" Type="decimal" Precision="4" Scale="2" />
+  </EntityType>
+  <EntityType Name="LOAN_DETAILS">
+    <Key>
+      <PropertyRef Name="LOAN_ACC_NUMBER" />
+    </Key>
+    <Property Name="LOAN_ACC_NUMBER" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LOAN_AMOUNT" Type="int" />
+    <Property Name="CUSTOMER_ID" Type="int" Nullable="false" />
+    <Property Name="LOAN_TYPE" Type="nvarchar" MaxLength="20" />
+    <Property Name="LOAN_APPROVED_DATE" Type="date" />
+    <Property Name="DISPERSAL_DATE" Type="date" />
+    <Property Name="INTEREST_RATE" Type="decimal" Precision="4" Scale="2" />
+    <Property Name="TENURE" Type="int" />
+    <Property Name="EMI_START_DATE" Type="date" />
+    <Property Name="EMI_END_DATE" Type="date" />
+    <Property Name="EMI_AMOUNT" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CREDIT_LIMIT" Type="int" />
+    <Property Name="LAST_UPDATED_CREDIT_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="Loan_Status">
+    <Key>
+      <PropertyRef Name="Status_Id" />
+    </Key>
+    <Property Name="Status_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StatusType" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="LOAN_TYPE">
+    <Key>
+      <PropertyRef Name="LoanID" />
+    </Key>
+    <Property Name="LoanID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoanType" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'LMS_DB.dbo.Manage_Loan' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Manage_Loan">
+    <Key>
+      <PropertyRef Name="CUSTOMER_ID" />
+      <PropertyRef Name="LoanAmount" />
+      <PropertyRef Name="LoanType" />
+      <PropertyRef Name="Tenure" />
+    </Key>
+    <Property Name="CUSTOMER_ID" Type="int" Nullable="false" />
+    <Property Name="LoanAmount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="LoanType" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Tenure" Type="int" Nullable="false" />
+    <Property Name="StatusType" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK__LOAN_DETA__CUSTO__0880433F">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="LOAN_DETAILS" Type="Self.LOAN_DETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CUSTOMER_ID" />
+      </Principal>
+      <Dependent Role="LOAN_DETAILS">
+        <PropertyRef Name="CUSTOMER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="spInsertBankEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmpName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Contact_Number" Type="numeric" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email_Type" Type="nvarchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_CheckLoan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_DeleteCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_DeleteFromApplyLoan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetCreditLimit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetCustomerFirstName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetCustomerId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetCustomerIdAfterRegistration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_GetCustomerLastName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetEmployeeIdAfterRegistration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_GetFirstName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetInterestRate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetLastName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetLoanAmount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetLoanType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetTenure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_InsertApplyLoan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CUSTOMER_ID" Type="int" Mode="In" />
+    <Parameter Name="LoanAmount" Type="decimal" Mode="In" />
+    <Parameter Name="LoanType" Type="varchar" Mode="In" />
+    <Parameter Name="Tenure" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_InsertBankEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmpName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Contact_Number" Type="numeric" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="Employee_Type" Type="nvarchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_InsertCustomers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="first_name" Type="varchar" Mode="In" />
+    <Parameter Name="last_name" Type="varchar" Mode="In" />
+    <Parameter Name="address" Type="varchar" Mode="In" />
+    <Parameter Name="pan_num" Type="varchar" Mode="In" />
+    <Parameter Name="aadhar_num" Type="bigint" Mode="In" />
+    <Parameter Name="con_num" Type="bigint" Mode="In" />
+    <Parameter Name="email" Type="varchar" Mode="In" />
+    <Parameter Name="dob" Type="date" Mode="In" />
+    <Parameter Name="credit_lim" Type="numeric" Mode="In" />
+    <Parameter Name="last_updated_credit_date" Type="date" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_InsertLoan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LOAN_AMOUNT" Type="int" Mode="In" />
+    <Parameter Name="CUSTOMER_ID" Type="int" Mode="In" />
+    <Parameter Name="LOAN_TYPE" Type="nvarchar" Mode="In" />
+    <Parameter Name="LOAN_APPROVED_DATE" Type="date" Mode="In" />
+    <Parameter Name="DISPERSAL_DATE" Type="date" Mode="In" />
+    <Parameter Name="INTEREST_RATE" Type="decimal" Mode="In" />
+    <Parameter Name="TENURE" Type="int" Mode="In" />
+    <Parameter Name="EMI_START_DATE" Type="date" Mode="In" />
+    <Parameter Name="EMI_END_DATE" Type="date" Mode="In" />
+    <Parameter Name="EMI_AMOUNT" Type="decimal" Mode="In" />
+    <Parameter Name="CREDIT_LIMIT" Type="int" Mode="In" />
+    <Parameter Name="LAST_UPDATED_CREDIT_DATE" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_InsertManageLoan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_SearchCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_ShowAllLoanApplications" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_ShowEligibleCustomers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_ShowManageLoan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_UpdateApplyLoanAccept" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_UpdateApplyLoanReject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_UpdateApproved" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_UpdateCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+    <Parameter Name="FIRST_NAME" Type="varchar" Mode="In" />
+    <Parameter Name="LAST_NAME" Type="varchar" Mode="In" />
+    <Parameter Name="ADDRESS" Type="varchar" Mode="In" />
+    <Parameter Name="PAN_NUMBER" Type="varchar" Mode="In" />
+    <Parameter Name="AADHAR_NUMBER" Type="numeric" Mode="In" />
+    <Parameter Name="CONTACT_NUMBER" Type="numeric" Mode="In" />
+    <Parameter Name="EMAIL" Type="varchar" Mode="In" />
+    <Parameter Name="DOB" Type="date" Mode="In" />
+    <Parameter Name="CREDIT_LIMIT" Type="numeric" Mode="In" />
+    <Parameter Name="LAST_UPDATED_CREDIT_DATE" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_UpdateCustomerDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+    <Parameter Name="FIRST_NAME" Type="varchar" Mode="In" />
+    <Parameter Name="LAST_NAME" Type="varchar" Mode="In" />
+    <Parameter Name="ADDRESS" Type="varchar" Mode="In" />
+    <Parameter Name="PAN_NUMBER" Type="varchar" Mode="In" />
+    <Parameter Name="AADHAR_NUMBER" Type="numeric" Mode="In" />
+    <Parameter Name="CONTACT_NUMBER" Type="numeric" Mode="In" />
+    <Parameter Name="DOB" Type="date" Mode="In" />
+    <Parameter Name="CREDIT_LIMIT" Type="numeric" Mode="In" />
+    <Parameter Name="LAST_UPDATED_CREDIT_DATE" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_UpdateLoan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LOAN_AMOUNT" Type="int" Mode="In" />
+    <Parameter Name="CUSTOMER_ID" Type="int" Mode="In" />
+    <Parameter Name="LOAN_TYPE" Type="nvarchar" Mode="In" />
+    <Parameter Name="LOAN_APPROVED_DATE" Type="date" Mode="In" />
+    <Parameter Name="DISPERSAL_DATE" Type="date" Mode="In" />
+    <Parameter Name="INTEREST_RATE" Type="numeric" Mode="In" />
+    <Parameter Name="TENURE" Type="numeric" Mode="In" />
+    <Parameter Name="EMI_START_DATE" Type="date" Mode="In" />
+    <Parameter Name="EMI_END_DATE" Type="date" Mode="In" />
+    <Parameter Name="EMI_AMOUNT" Type="decimal" Mode="In" />
+    <Parameter Name="CREDIT_LIMIT" Type="int" Mode="In" />
+    <Parameter Name="LAST_UPDATED_CREDIT_DATE" Type="date" Mode="In" />
+    <Parameter Name="CUSTOMER_ASSET_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_UpdateRejected" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_ViewCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_ViewCustomerDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_ViewLoanStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cust_id" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="LMS_DBModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Apply_Loan" EntityType="Self.Apply_Loan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BANK_EMPLOYEE" EntityType="Self.BANK_EMPLOYEE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer_Details" EntityType="Self.Customer_Details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Interest_Rate_Details" EntityType="Self.Interest_Rate_Details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOAN_DETAILS" EntityType="Self.LOAN_DETAILS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Loan_Status" EntityType="Self.Loan_Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOAN_TYPE" EntityType="Self.LOAN_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Manage_Loan" EntityType="Self.Manage_Loan" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Manage_Loan].[CUSTOMER_ID] AS [CUSTOMER_ID], 
+    [Manage_Loan].[LoanAmount] AS [LoanAmount], 
+    [Manage_Loan].[LoanType] AS [LoanType], 
+    [Manage_Loan].[Tenure] AS [Tenure], 
+    [Manage_Loan].[StatusType] AS [StatusType]
+    FROM [dbo].[Manage_Loan] AS [Manage_Loan]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__LOAN_DETA__CUSTO__0880433F" Association="Self.FK__LOAN_DETA__CUSTO__0880433F">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="LOAN_DETAILS" EntitySet="LOAN_DETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

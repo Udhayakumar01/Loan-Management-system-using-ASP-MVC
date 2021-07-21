@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LMS_DBModelStoreContainer" CdmEntityContainer="LMS_DBEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="LMS_DBModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="LMS_DBModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Apply_Loan">
+      <EntityTypeMapping TypeName="LMS_DBModel.Apply_Loan">
+        <MappingFragment StoreEntitySet="Apply_Loan">
+          <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+          <ScalarProperty Name="LoanAmount" ColumnName="LoanAmount" />
+          <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+          <ScalarProperty Name="Tenure" ColumnName="Tenure" />
+          <ScalarProperty Name="StatusType" ColumnName="StatusType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="LMS_DBModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="LMS_DBModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="LMS_DBModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="LMS_DBModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BANK_EMPLOYEE">
+      <EntityTypeMapping TypeName="LMS_DBModel.BANK_EMPLOYEE">
+        <MappingFragment StoreEntitySet="BANK_EMPLOYEE">
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+          <ScalarProperty Name="Contact_Number" ColumnName="Contact_Number" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Employee_Type" ColumnName="Employee_Type" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="LMS_DBModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+          <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+          <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="PAN_NUMBER" ColumnName="PAN_NUMBER" />
+          <ScalarProperty Name="AADHAR_NUMBER" ColumnName="AADHAR_NUMBER" />
+          <ScalarProperty Name="CONTACT_NUMBER" ColumnName="CONTACT_NUMBER" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="CREDIT_LIMIT" ColumnName="CREDIT_LIMIT" />
+          <ScalarProperty Name="LAST_UPDATED_CREDIT_DATE" ColumnName="LAST_UPDATED_CREDIT_DATE" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_Details">
+      <EntityTypeMapping TypeName="LMS_DBModel.Customer_Details">
+        <MappingFragment StoreEntitySet="Customer_Details">
+          <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+          <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+          <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="PAN_NUMBER" ColumnName="PAN_NUMBER" />
+          <ScalarProperty Name="AADHAR_NUMBER" ColumnName="AADHAR_NUMBER" />
+          <ScalarProperty Name="CONTACT_NUMBER" ColumnName="CONTACT_NUMBER" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="CREDIT_LIMIT" ColumnName="CREDIT_LIMIT" />
+          <ScalarProperty Name="LAST_UPDATED_CREDIT_LIMIT" ColumnName="LAST_UPDATED_CREDIT_LIMIT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Interest_Rate_Details">
+      <EntityTypeMapping TypeName="LMS_DBModel.Interest_Rate_Details">
+        <MappingFragment StoreEntitySet="Interest_Rate_Details">
+          <ScalarProperty Name="IntrestID" ColumnName="IntrestID" />
+          <ScalarProperty Name="Loan_ID" ColumnName="Loan_ID" />
+          <ScalarProperty Name="Interest_Rate" ColumnName="Interest_Rate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAN_DETAILS">
+      <EntityTypeMapping TypeName="LMS_DBModel.LOAN_DETAILS">
+        <MappingFragment StoreEntitySet="LOAN_DETAILS">
+          <ScalarProperty Name="LOAN_ACC_NUMBER" ColumnName="LOAN_ACC_NUMBER" />
+          <ScalarProperty Name="LOAN_AMOUNT" ColumnName="LOAN_AMOUNT" />
+          <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+          <ScalarProperty Name="LOAN_TYPE" ColumnName="LOAN_TYPE" />
+          <ScalarProperty Name="LOAN_APPROVED_DATE" ColumnName="LOAN_APPROVED_DATE" />
+          <ScalarProperty Name="DISPERSAL_DATE" ColumnName="DISPERSAL_DATE" />
+          <ScalarProperty Name="INTEREST_RATE" ColumnName="INTEREST_RATE" />
+          <ScalarProperty Name="TENURE" ColumnName="TENURE" />
+          <ScalarProperty Name="EMI_START_DATE" ColumnName="EMI_START_DATE" />
+          <ScalarProperty Name="EMI_END_DATE" ColumnName="EMI_END_DATE" />
+          <ScalarProperty Name="EMI_AMOUNT" ColumnName="EMI_AMOUNT" />
+          <ScalarProperty Name="CREDIT_LIMIT" ColumnName="CREDIT_LIMIT" />
+          <ScalarProperty Name="LAST_UPDATED_CREDIT_DATE" ColumnName="LAST_UPDATED_CREDIT_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Loan_Status">
+      <EntityTypeMapping TypeName="LMS_DBModel.Loan_Status">
+        <MappingFragment StoreEntitySet="Loan_Status">
+          <ScalarProperty Name="Status_Id" ColumnName="Status_Id" />
+          <ScalarProperty Name="StatusType" ColumnName="StatusType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAN_TYPE">
+      <EntityTypeMapping TypeName="LMS_DBModel.LOAN_TYPE">
+        <MappingFragment StoreEntitySet="LOAN_TYPE">
+          <ScalarProperty Name="LoanID" ColumnName="LoanID" />
+          <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Manage_Loan">
+      <EntityTypeMapping TypeName="LMS_DBModel.Manage_Loan">
+        <MappingFragment StoreEntitySet="Manage_Loan">
+          <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+          <ScalarProperty Name="LoanAmount" ColumnName="LoanAmount" />
+          <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+          <ScalarProperty Name="Tenure" ColumnName="Tenure" />
+          <ScalarProperty Name="StatusType" ColumnName="StatusType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="LMS_DBModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="spInsertBankEmployee" FunctionName="LMS_DBModel.Store.spInsertBankEmployee" />
+    <FunctionImportMapping FunctionImportName="usp_CheckLoan" FunctionName="LMS_DBModel.Store.usp_CheckLoan">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LMS_DBModel.usp_CheckLoan_Result">
+          <ScalarProperty Name="LOAN_ACC_NUMBER" ColumnName="LOAN_ACC_NUMBER" />
+          <ScalarProperty Name="LOAN_AMOUNT" ColumnName="LOAN_AMOUNT" />
+          <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+          <ScalarProperty Name="LOAN_TYPE" ColumnName="LOAN_TYPE" />
+          <ScalarProperty Name="LOAN_APPROVED_DATE" ColumnName="LOAN_APPROVED_DATE" />
+          <ScalarProperty Name="DISPERSAL_DATE" ColumnName="DISPERSAL_DATE" />
+          <ScalarProperty Name="INTEREST_RATE" ColumnName="INTEREST_RATE" />
+          <ScalarProperty Name="TENURE" ColumnName="TENURE" />
+          <ScalarProperty Name="EMI_START_DATE" ColumnName="EMI_START_DATE" />
+          <ScalarProperty Name="EMI_END_DATE" ColumnName="EMI_END_DATE" />
+          <ScalarProperty Name="EMI_AMOUNT" ColumnName="EMI_AMOUNT" />
+          <ScalarProperty Name="CREDIT_LIMIT" ColumnName="CREDIT_LIMIT" />
+          <ScalarProperty Name="LAST_UPDATED_CREDIT_DATE" ColumnName="LAST_UPDATED_CREDIT_DATE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_DeleteCustomer" FunctionName="LMS_DBModel.Store.usp_DeleteCustomer" />
+    <FunctionImportMapping FunctionImportName="usp_DeleteFromApplyLoan" FunctionName="LMS_DBModel.Store.usp_DeleteFromApplyLoan" />
+    <FunctionImportMapping FunctionImportName="usp_GetCreditLimit" FunctionName="LMS_DBModel.Store.usp_GetCreditLimit" />
+    <FunctionImportMapping FunctionImportName="usp_GetCustomerFirstName" FunctionName="LMS_DBModel.Store.usp_GetCustomerFirstName" />
+    <FunctionImportMapping FunctionImportName="usp_GetCustomerId" FunctionName="LMS_DBModel.Store.usp_GetCustomerId" />
+    <FunctionImportMapping FunctionImportName="usp_GetCustomerIdAfterRegistration" FunctionName="LMS_DBModel.Store.usp_GetCustomerIdAfterRegistration" />
+    <FunctionImportMapping FunctionImportName="usp_GetCustomerLastName" FunctionName="LMS_DBModel.Store.usp_GetCustomerLastName" />
+    <FunctionImportMapping FunctionImportName="usp_GetEmployeeIdAfterRegistration" FunctionName="LMS_DBModel.Store.usp_GetEmployeeIdAfterRegistration" />
+    <FunctionImportMapping FunctionImportName="usp_GetFirstName" FunctionName="LMS_DBModel.Store.usp_GetFirstName" />
+    <FunctionImportMapping FunctionImportName="usp_GetInterestRate" FunctionName="LMS_DBModel.Store.usp_GetInterestRate" />
+    <FunctionImportMapping FunctionImportName="usp_GetLastName" FunctionName="LMS_DBModel.Store.usp_GetLastName" />
+    <FunctionImportMapping FunctionImportName="usp_GetLoanAmount" FunctionName="LMS_DBModel.Store.usp_GetLoanAmount" />
+    <FunctionImportMapping FunctionImportName="usp_GetLoanType" FunctionName="LMS_DBModel.Store.usp_GetLoanType" />
+    <FunctionImportMapping FunctionImportName="usp_GetTenure" FunctionName="LMS_DBModel.Store.usp_GetTenure" />
+    <FunctionImportMapping FunctionImportName="usp_InsertApplyLoan" FunctionName="LMS_DBModel.Store.usp_InsertApplyLoan" />
+    <FunctionImportMapping FunctionImportName="usp_InsertBankEmployee" FunctionName="LMS_DBModel.Store.usp_InsertBankEmployee" />
+    <FunctionImportMapping FunctionImportName="usp_InsertCustomers" FunctionName="LMS_DBModel.Store.usp_InsertCustomers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LMS_DBModel.usp_InsertCustomers_Result">
+          <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+          <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+          <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="PAN_NUMBER" ColumnName="PAN_NUMBER" />
+          <ScalarProperty Name="AADHAR_NUMBER" ColumnName="AADHAR_NUMBER" />
+          <ScalarProperty Name="CONTACT_NUMBER" ColumnName="CONTACT_NUMBER" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="CREDIT_LIMIT" ColumnName="CREDIT_LIMIT" />
+          <ScalarProperty Name="LAST_UPDATED_CREDIT_DATE" ColumnName="LAST_UPDATED_CREDIT_DATE" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_InsertLoan" FunctionName="LMS_DBModel.Store.usp_InsertLoan" />
+    <FunctionImportMapping FunctionImportName="usp_InsertManageLoan" FunctionName="LMS_DBModel.Store.usp_InsertManageLoan" />
+    <FunctionImportMapping FunctionImportName="usp_SearchCustomer" FunctionName="LMS_DBModel.Store.usp_SearchCustomer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LMS_DBModel.usp_SearchCustomer_Result">
+          <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+          <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+          <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="PAN_NUMBER" ColumnName="PAN_NUMBER" />
+          <ScalarProperty Name="AADHAR_NUMBER" ColumnName="AADHAR_NUMBER" />
+          <ScalarProperty Name="CONTACT_NUMBER" ColumnName="CONTACT_NUMBER" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="CREDIT_LIMIT" ColumnName="CREDIT_LIMIT" />
+          <ScalarProperty Name="LAST_UPDATED_CREDIT_DATE" ColumnName="LAST_UPDATED_CREDIT_DATE" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ShowAllLoanApplications" FunctionName="LMS_DBModel.Store.usp_ShowAllLoanApplications">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LMS_DBModel.usp_ShowAllLoanApplications_Result">
+          <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+          <ScalarProperty Name="LoanAmount" ColumnName="LoanAmount" />
+          <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+          <ScalarProperty Name="Tenure" ColumnName="Tenure" />
+          <ScalarProperty Name="StatusType" ColumnName="StatusType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ShowEligibleCustomers" FunctionName="LMS_DBModel.Store.usp_ShowEligibleCustomers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LMS_DBModel.usp_ShowEligibleCustomers_Result">
+          <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+          <ScalarProperty Name="LoanAmount" ColumnName="LoanAmount" />
+          <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+          <ScalarProperty Name="Tenure" ColumnName="Tenure" />
+          <ScalarProperty Name="StatusType" ColumnName="StatusType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ShowManageLoan" FunctionName="LMS_DBModel.Store.usp_ShowManageLoan">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LMS_DBModel.usp_ShowManageLoan_Result">
+          <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+          <ScalarProperty Name="LoanAmount" ColumnName="LoanAmount" />
+          <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+          <ScalarProperty Name="Tenure" ColumnName="Tenure" />
+          <ScalarProperty Name="StatusType" ColumnName="StatusType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_UpdateApplyLoanAccept" FunctionName="LMS_DBModel.Store.usp_UpdateApplyLoanAccept" />
+    <FunctionImportMapping FunctionImportName="usp_UpdateApplyLoanReject" FunctionName="LMS_DBModel.Store.usp_UpdateApplyLoanReject" />
+    <FunctionImportMapping FunctionImportName="usp_UpdateApproved" FunctionName="LMS_DBModel.Store.usp_UpdateApproved" />
+    <FunctionImportMapping FunctionImportName="usp_UpdateCustomer" FunctionName="LMS_DBModel.Store.usp_UpdateCustomer" />
+    <FunctionImportMapping FunctionImportName="usp_UpdateCustomerDetails" FunctionName="LMS_DBModel.Store.usp_UpdateCustomerDetails" />
+    <FunctionImportMapping FunctionImportName="usp_UpdateLoan" FunctionName="LMS_DBModel.Store.usp_UpdateLoan" />
+    <FunctionImportMapping FunctionImportName="usp_UpdateRejected" FunctionName="LMS_DBModel.Store.usp_UpdateRejected" />
+    <FunctionImportMapping FunctionImportName="usp_ViewCustomer" FunctionName="LMS_DBModel.Store.usp_ViewCustomer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LMS_DBModel.usp_ViewCustomer_Result">
+          <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+          <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+          <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="PAN_NUMBER" ColumnName="PAN_NUMBER" />
+          <ScalarProperty Name="AADHAR_NUMBER" ColumnName="AADHAR_NUMBER" />
+          <ScalarProperty Name="CONTACT_NUMBER" ColumnName="CONTACT_NUMBER" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="CREDIT_LIMIT" ColumnName="CREDIT_LIMIT" />
+          <ScalarProperty Name="LAST_UPDATED_CREDIT_DATE" ColumnName="LAST_UPDATED_CREDIT_DATE" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ViewCustomerDetails" FunctionName="LMS_DBModel.Store.usp_ViewCustomerDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LMS_DBModel.usp_ViewCustomerDetails_Result">
+          <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+          <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+          <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="PAN_NUMBER" ColumnName="PAN_NUMBER" />
+          <ScalarProperty Name="AADHAR_NUMBER" ColumnName="AADHAR_NUMBER" />
+          <ScalarProperty Name="CONTACT_NUMBER" ColumnName="CONTACT_NUMBER" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="CREDIT_LIMIT" ColumnName="CREDIT_LIMIT" />
+          <ScalarProperty Name="LAST_UPDATED_CREDIT_DATE" ColumnName="LAST_UPDATED_CREDIT_DATE" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ViewLoanStatus" FunctionName="LMS_DBModel.Store.usp_ViewLoanStatus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LMS_DBModel.usp_ViewLoanStatus_Result">
+          <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+          <ScalarProperty Name="LoanAmount" ColumnName="LoanAmount" />
+          <ScalarProperty Name="LoanType" ColumnName="LoanType" />
+          <ScalarProperty Name="Tenure" ColumnName="Tenure" />
+          <ScalarProperty Name="StatusType" ColumnName="StatusType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

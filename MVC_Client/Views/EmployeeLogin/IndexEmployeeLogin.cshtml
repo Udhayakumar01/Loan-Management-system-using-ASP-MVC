@@ -1,0 +1,94 @@
+﻿@model MVC_Client.Models.EmployeeLogin
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2></h2>
+
+
+@using (Html.BeginForm("Authorize", "EmployeeLogin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="UserDiv">
+    <div class="form-horizontal">
+        <center>
+        <h2>Employee Login</h2>
+            </center>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <center>
+            @Html.LabelFor(model => model.EmpId,"Employee ID :" ,htmlAttributes: new { @class = "control-label col-md-2" })
+                </center>
+            <div class="col-md-10">
+                
+                    @Html.EditorFor(model => model.EmpId, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.EmpId, "", new { @class = "text-danger" })
+                
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password,"Password :", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.loginErrorMessage, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.loginErrorMessage, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.loginErrorMessage, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Login" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+     </div>
+}
+
+<div>
+    <a href="@Url.Action("IndexEmployeeRegistration", "MVCInsertEmployee")" class="btn btn-primary">Register</a>
+
+</div>
+
+@*@section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@
+@*this script for alertyfy message sent successfuly represent*@
+
+
+
+@section scripts{
+    <script>
+    $(function () {
+        var SuccessMessage = '@TempData["SuccessMessage"]'
+        if (SuccessMessage != '')
+            alertify.success(SuccessMessage);
+
+
+
+    });
+    </script>
+    @Scripts.Render("~/bundles/jqueryval");
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+
+    <script src="~/Content/assets/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="~/Content/assets/js/popper.min.js"></script>
+    <script src="~/Content/assets/js/plugins.js"></script>
+    <script src="~/Content/assets/js/main.js"></script>
+
+
+
+}

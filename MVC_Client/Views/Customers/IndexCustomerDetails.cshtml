@@ -1,0 +1,109 @@
+﻿@model IEnumerable<MVC_Client.Models.Customer>
+
+@{
+    ViewBag.Title = "IndexCustomerDetails";
+}
+
+<h2>Customer Details</h2>
+
+<p>
+</p>
+<table class="table table-striped table-hover">
+    <tr class="info">
+        <th>
+            Customer ID
+        </th>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            Pan Number
+        </th>
+        <th>
+            Aadhar Number
+        </th>
+        <th>
+            Contact Number
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            DOB
+        </th>
+        <th>
+            Credit Limit
+        </th>
+        <th>
+            Last Updated Credit Limit
+        </th>
+        <th>
+            Action
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CUSTOMER_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FIRST_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LAST_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ADDRESS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PAN_NUMBER)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AADHAR_NUMBER)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CONTACT_NUMBER)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EMAIL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CREDIT_LIMIT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LAST_UPDATED_CREDIT_DATE)
+            </td>
+
+            <td>
+                <a href="@Url.Action("Delete", "Customers", new { id = item.CUSTOMER_ID })" class="btn btn-primary">Delete</a>
+                
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", "Customers", new { id = item.CUSTOMER_ID })" class="btn btn-primary">Update</a>
+            </td>
+        </tr>
+    }
+
+</table>
+<a href="@Url.Action("IndexEmployeeOperations", "EmployeeOperations")" class="btn btn-primary">Back</a>
+@section scripts{
+    <script>
+        $(function () {
+            var successMessage = '@TempData["SuccessMessage"]'
+            if (successMessage != '')
+                alertify.success(successMessage);
+        });
+    </script>
+}

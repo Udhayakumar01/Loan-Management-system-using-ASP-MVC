@@ -1,0 +1,65 @@
+﻿@model IEnumerable<MVC_Client.Models.Apply_Loan>
+
+@{
+    ViewBag.Title = "View Apply Loan";
+}
+<strong>
+    <p><h3>Customer Loan Applications</h3></p>
+</strong>
+
+<p>
+</p>
+<table class="table table-striped table-hover">
+    <tr class="info">
+        <th>
+            Customer ID
+        </th>
+        <th>
+            Loan Amount
+        </th>
+        <th>
+            Loan Type
+        </th>
+        <th>
+            Tenure
+        </th>
+        <th>
+            Status Type
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CUSTOMER_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoanAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoanType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tenure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusType)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", "Apply_Loan", new { id = item.CUSTOMER_ID })" class="btn btn-primary">Manage Loan Applications</a>
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+<a href="@Url.Action("IndexEmployeeOperations", "EmployeeOperations")" class="btn btn-primary">Back</a>
+
+
+

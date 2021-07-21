@@ -1,0 +1,87 @@
+﻿@{ ViewBag.Title = "Employee Operations"; }
+
+
+
+
+
+<link href="~/stylediv.css" rel="stylesheet" />
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+
+        </div>
+
+
+
+
+
+        <div class="col-lg-6">
+            <div class="customDiv">
+                <h1>Employee Operations</h1>
+                <table class="table">
+                    <thead>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href="@Url.Action("IndexCustomerDetails","Customers")" class="btn btn-primary">
+                                    <figure>
+                                        <img src="~/Images/customerData.jpg" , height="120" width="130" />
+                                        <figcaption>Customer Data</figcaption>
+                                    </figure>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="@Url.Action("ViewLoan", "Apply_Loan")" class="btn btn-primary">
+                                    <figure>
+                                        <img src="~/Images/loanapplication.jpg" , height="120" width="130" />
+                                        <figcaption>Customer Loan Applications</figcaption>
+                                    </figure>
+
+
+
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="@Url.Action("IndexLoanDetails", "LOAN_DETAILS")" class="btn btn-primary">
+                                    <figure>
+                                        <img src="~/Images/loandetails.png" , height="120" width="130" />
+                                        <figcaption>Loan Details</figcaption>
+                                    </figure>
+
+
+
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+            @*<a href="@Url.Action()" class="btn btn-primary">Update Customer Details</a>*@
+
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="col-lg-3">
+
+
+
+
+
+        </div>
+    </div>
+</div>

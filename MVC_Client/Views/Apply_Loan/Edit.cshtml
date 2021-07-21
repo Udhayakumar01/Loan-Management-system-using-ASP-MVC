@@ -1,0 +1,223 @@
+﻿@model MVC_Client.Models.Apply_Loan
+
+@{
+    ViewBag.Title = "Loan Application";
+}
+
+<h2>Loan Application</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal" text-align:center>
+        <h4></h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.CUSTOMER_ID, "Customer ID :", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.CUSTOMER_ID, new { @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.CUSTOMER_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerName, "Customer Name :", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.CustomerName, new { @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.CustomerName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LoanAmount, "Loan Amount :", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.LoanAmount, new { @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.LoanAmount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LoanType, "Loan Type :", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.LoanType, new { @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.LoanType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tenure, "Tenure :", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Tenure, new { @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.Tenure, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CreditLimit, "Credit Limit :", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.CreditLimit, new { @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.CreditLimit, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StatusType, "Status Type :", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.StatusType, new { @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.StatusType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Approve" onclick="ShowPopUp()" class="btn btn-primary" />
+                <input type="submit" value="Reject" onclick="ShowPopUp1(this.event)" class="btn btn-danger" />
+
+            </div>
+        </div>
+        @*<div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Reject"  class="btn btn-default" />
+
+                </div>
+            </div>*@
+
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal" data-backdrop='static' keyboard='false'>
+
+            <div class="alert alert-dismissible alert-success">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Well done!</strong> Loan Approved. <a href="#" class="alert-link">this important alert message</a>.
+            </div>
+        </div>
+        <div id="myModal" class="modal" data-backdrop='static' keyboard='false'>
+
+            <div id="myModal1" class="alert alert-dismissible alert-danger" data-backdrop='static' keyboard='false'>
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Loan Applicatio Rejected!</strong> <a href="#" class="alert-link">Customer is not eligible for the Loan</a>
+            </div>
+        </div>
+
+    </div>
+    <!-- The Modal -->
+    <!--<div id="myModal1" class="modal1">-->
+    <!-- Modal content -->
+    <!--<div class="modal-content" data-backdrop='static' keyboard='false'>
+            <span onclick="Tohide()" class="close">&times;</span>
+            <p>Loan Application Rejected...</p>
+        </div>
+
+    </div>-->
+}
+<div>
+    <a href="@Url.Action("ViewLoan", "Apply_Loan")" class="btn btn-primary">Back</a>
+
+    @*@Html.ActionLink("Back to List", "ViewApplyLoan")*@
+</div>
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@
+
+
+@*<script>
+        function ShowPopUp(e) {
+            debugger
+            setTimeout(() => {
+                $('#myModal').show();
+            }, 2000)
+        };
+
+        function Tohide (e) {
+                $('#myModal').hide();
+        };
+
+    </script>*@
+
+
+@*<style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+    </style>*@
+@*<script>
+
+        function ShowPopUp(e) {
+            debugger
+            //alert('OK');
+            $('#myModal').show();
+
+        };
+
+        function ShowPopUp1(e) {
+            debugger
+            //alert('OK');
+            $('#myModal1').show();
+
+        };
+
+            //function Tohide(e) {
+            //    $('#myModal').show();
+            //};
+</script>*@
+@*<script>
+        $(document).ready(function () {
+            $(".show-modal").click(function () {
+                $('#myModal').show();
+                $("#myModal").modal({
+                    backdrop: 'static',
+                    keyboard: false
+                });
+            });
+        });
+    </script>*@
+@section scripts{
+    <script>
+        $(function () {
+            var successMessage = '@TempData["SuccessMessage"]'
+            if (successMessage != '')
+                alertify.success(successMessage);
+        });
+        </script>
+    }

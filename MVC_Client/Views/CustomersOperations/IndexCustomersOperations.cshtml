@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "IndexCustomersOperations";
+}
+
+<h2>Customers Operations</h2>
+<a href="@Url.Action("Create","Customers" )" class="btn btn-default">Create</a>
+<a href="@Url.Action("Edit", "Customers", new { id = 1 })" class="btn btn-primary">Update</a>
+<a href="@Url.Action("Details","Customers", new { id = 1 })" class="btn btn-primary">View your Data</a>
+<a href="@Url.Action("Create", "Apply_Loan",new { id = 1})" class="btn btn-primary">Apply For Loan</a>
+<a href="@Url.Action("Details", "Apply_Loan", new { id = 1})" class="btn btn-primary">View Loan Status</a>
+
+
+
+
